@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{F9ED0C49-D331-5C5C-3E89-915ACE11D080}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ArtificialIntelligenceService.cs">
+    <Files>
+      <File FileName="Assets/Objects and Scripts/GameManaging/GameRules/RulesScript.cs" Line="16" Column="6" />
+      <File FileName="Assets/Objects and Scripts/Player/PlayerScript.cs" Line="7" Column="2" />
+      <File FileName="Assets/Objects and Scripts/CardManaging/CardManagerScript.cs" Line="13" Column="57" />
+      <File FileName="Assets/Objects and Scripts/Card/Card.cs" Line="29" Column="1" />
+      <File FileName="Assets/Objects and Scripts/CardManaging/CardStackScript.cs" Line="58" Column="6" />
+      <File FileName="Assets/Objects and Scripts/CardManaging/TakeStackScript.cs" Line="14" Column="6" />
+      <File FileName="Assets/Objects and Scripts/CardManaging/CardGeneratorScript.cs" Line="9" Column="32" />
+      <File FileName="Assets/Objects and Scripts/GameManaging/GameManagerScript.cs" Line="140" Column="113" />
+      <File FileName="Assets/ArtificialIntelligenceService.cs" Line="8" Column="39" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="UnoGame2D" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Objects and Scripts" expanded="True">
+                <Node name="Card" expanded="True" />
+                <Node name="CardManaging" expanded="True" />
+                <Node name="GameManaging" expanded="True">
+                  <Node name="GameRules" expanded="True" />
+                </Node>
+                <Node name="Player" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dfc9a6ee-4d40-488b-a555-2170a24bc238" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

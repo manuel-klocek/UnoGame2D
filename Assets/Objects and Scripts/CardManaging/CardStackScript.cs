@@ -57,8 +57,7 @@ public class CardStackScript : MonoBehaviour
     private bool IsSameOrFirstActionCard(GameObject cardGO)
     {
         if (cardStack[^1].GetComponent<Card>().symbol == cardGO.GetComponent<Card>().symbol &&
-            (cardStack[^1].GetComponent<Card>().symbol == "+2" || cardStack[^1].GetComponent<Card>().symbol == "+4")
-            && gameManager.isEvent)
+            (cardStack[^1].GetComponent<Card>().symbol == "+2" || cardStack[^1].GetComponent<Card>().symbol == "+4"))
         {
             cardStack.Add(cardGO);
             Debug.Log(cardGO.GetComponent<Card>().color + " " + cardGO.GetComponent<Card>().symbol + " added to CardStack");

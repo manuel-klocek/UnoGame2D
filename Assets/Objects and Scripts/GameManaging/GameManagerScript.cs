@@ -28,12 +28,16 @@ public class GameManagerScript : MonoBehaviour
         player1.GetComponent<PlayerScript>().name = "Player 1";
         var player2 = Instantiate(player);
         player2.GetComponent<PlayerScript>().name = "Player 2";
-        var bot1 = Instantiate(player);
-        bot1.name = "Bot 1";
-        bot1.tag = "bot";
-        var bot2 = Instantiate(player);
-        bot2.name = "Bot 2";
-        bot2.tag = "bot";
+        //var bot1 = Instantiate(player);
+        //bot1.name = "Bot 1";
+        //bot1.tag = "bot";
+        //var bot2 = Instantiate(player);
+        //bot2.name = "Bot 2";
+        //bot2.tag = "bot";
+        var player3 = Instantiate(player);
+        player3.GetComponent<PlayerScript>().name = "Player 3";
+        var player4 = Instantiate(player);
+        player4.GetComponent<PlayerScript>().name = "Player 4";
 
         GetPlayers();
 
@@ -85,35 +89,19 @@ public class GameManagerScript : MonoBehaviour
         }
         else if (stackCardSymbol == "!!")
         {
-            NextPlayer(true);
             isEvent = false;
+            NextPlayer(true);
             return;
         }
         else if (stackCardSymbol == "+2")
         {
-            if (!IsAbleToForward("+2"))
-            {
-                AddPenaltyCards(2);
-                isEvent = false;
-            }
-            else
-            {
-                penaltyCardsLaying = true;
-                isEvent = true;
-            }
+            penaltyCardsLaying = true;
+            isEvent = false;
         }
         else if (stackCardSymbol == "+4")
         {
-            if (!IsAbleToForward("+4"))
-            {
-                AddPenaltyCards(4);
-                isEvent = false;
-            }
-            else
-            {
-                penaltyCardsLaying = true;
-                isEvent = true;
-            }
+            penaltyCardsLaying = true;
+            isEvent = false;
         }
         else penaltyCardsLaying = false;
         NextPlayer();
@@ -125,8 +113,10 @@ public class GameManagerScript : MonoBehaviour
         for(int i = 0; i < cardsToTakeNum; i++)
         {
             list.Add(cardManager.GenerateSingleCardGO());
+            print(currentPlayer.name + " recieved 1 penalty card");
         }
         currentPlayer.GetComponent<PlayerScript>().AddMultipleCardGOs(list);
+        penaltyCardsLaying = false;
     }
 
     public void NextPlayer(bool skipPlayer = false, int? explicitPlayerIndex = null)
@@ -135,9 +125,9 @@ public class GameManagerScript : MonoBehaviour
         if (explicitPlayerIndex != null) nextPlayerIndex = (int) explicitPlayerIndex;
         else nextPlayerIndex = GetNextPlayerIndex();
 
-        if (skipPlayer) NextPlayer();
-
         SetCurrentPlayer(players[nextPlayerIndex]);
+
+        if (skipPlayer) NextPlayer();
 
         CheckForEvents();
 

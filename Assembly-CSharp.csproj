@@ -63,7 +63,6 @@
     <Compile Include="Assets/Objects and Scripts/Card/Card.cs" />
     <Compile Include="Assets/Objects and Scripts/Player/PlayerScript.cs" />
     <Compile Include="Assets/Objects and Scripts/GameManaging/GameRules/RulesScript.cs" />
-    <Compile Include="Assets/ArtificialIntelligenceService.cs" />
     <Compile Include="Assets/Objects and Scripts/CardManaging/CardStackScript.cs" />
   </ItemGroup>
   <ItemGroup>

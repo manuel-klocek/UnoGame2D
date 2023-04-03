@@ -13,7 +13,6 @@ public class GameManagerScript : MonoBehaviour
     private bool clockwiseRotation = true;
     private CardStackScript cardStack;
     private CardManagerScript cardManager;
-    private ArtificialIntelligenceService ai;
     private readonly List<GameObject> players = new();
 
     // Start is called before the first frame update
@@ -21,19 +20,12 @@ public class GameManagerScript : MonoBehaviour
     {
         cardStack = GameObject.FindGameObjectWithTag("cardStack").GetComponent<CardStackScript>();
         cardManager = GameObject.FindGameObjectWithTag("cardManager").GetComponent<CardManagerScript>();
-        ai = GameObject.FindGameObjectWithTag("aiManager").GetComponent<ArtificialIntelligenceService>();
 
         //Instantiate Mock Players
         var player1 = Instantiate(player);
         player1.GetComponent<PlayerScript>().name = "Player 1";
         var player2 = Instantiate(player);
         player2.GetComponent<PlayerScript>().name = "Player 2";
-        //var bot1 = Instantiate(player);
-        //bot1.name = "Bot 1";
-        //bot1.tag = "bot";
-        //var bot2 = Instantiate(player);
-        //bot2.name = "Bot 2";
-        //bot2.tag = "bot";
         var player3 = Instantiate(player);
         player3.GetComponent<PlayerScript>().name = "Player 3";
         var player4 = Instantiate(player);
@@ -79,8 +71,7 @@ public class GameManagerScript : MonoBehaviour
         if (!isEvent) return;
         if (stackCardSymbol == "==")
         {
-            if (currentPlayer.CompareTag("bot")) ai.determineColor(currentPlayer.GetComponent<PlayerScript>().GetDeck());
-            else { /* Let user decide color */ }
+            /* Let user decide color */ 
         }
         else if (stackCardSymbol == "<>")
         {
@@ -100,6 +91,7 @@ public class GameManagerScript : MonoBehaviour
         }
         else if (stackCardSymbol == "+4")
         {
+            /* Let user decide color */
             penaltyCardsLaying = true;
             isEvent = false;
         }
@@ -130,8 +122,6 @@ public class GameManagerScript : MonoBehaviour
         if (skipPlayer) NextPlayer();
 
         CheckForEvents();
-
-        if (currentPlayer.CompareTag("bot")) ai.ExecuteMove(currentPlayer, cardStack.GetLastCard());
     }
 
     private int GetNextPlayerIndex()
@@ -153,17 +143,6 @@ public class GameManagerScript : MonoBehaviour
     {
         players.Clear();
         var playerGOs = GameObject.FindGameObjectsWithTag("Player");
-        var botGOs = GameObject.FindGameObjectsWithTag("bot");
         foreach(var player in playerGOs) players.Add(player);
-        foreach (var bot in botGOs) players.Add(bot);
-    }
-
-    private bool IsAbleToForward(string symbol)
-    {
-        foreach(var card in currentPlayer.GetComponent<PlayerScript>().GetDeck())
-        {
-            if (card.GetComponent<Card>().symbol == symbol) return true;
-        }
-        return false;
     }
 }

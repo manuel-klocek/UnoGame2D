@@ -52,7 +52,7 @@ public class Card : MonoBehaviour
             }
         }
 
-        cardManager.RearrangeCards();
+        //TODO remove old cards from player deck
         gameManager.NextPlayer();
     }
 
@@ -80,21 +80,5 @@ public class Card : MonoBehaviour
         if (!eventSymbolCollection.Contains(symbol)) return false;
         gameManager.isEvent = true;
         return true;
-    }
-
-    public void AiCallingToUseCard()
-    {
-        SetupForAiCall();
-
-        OnMouseUp();
-    }
-
-    private void SetupForAiCall()
-    {
-        cardStack = GameObject.FindGameObjectWithTag("cardStack").GetComponent<CardStackScript>();
-        takeStack = GameObject.FindGameObjectWithTag("takeStack").GetComponent<TakeStackScript>();
-        cardManager = GameObject.FindGameObjectWithTag("cardManager").GetComponent<CardManagerScript>();
-        rules = GameObject.FindGameObjectWithTag("rules").GetComponent<RulesScript>();
-        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManagerScript>();
     }
 }

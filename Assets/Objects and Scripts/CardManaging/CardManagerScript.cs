@@ -80,34 +80,9 @@ public class CardManagerScript : MonoBehaviour
         existingCardGOs = newCardState;
     }
 
-    private void GetPlayers()
-    {
-        players.Clear();
-        var goList = GameObject.FindGameObjectsWithTag("Player");
-        foreach (var go in goList)
-        {
-            players.Add(go.GetComponent<PlayerScript>());
-        }
-    }
-
     public void SetCardsUnvisibleOf(PlayerScript player) => player.GetDeck().ForEach(card => { if (!card.CompareTag("stackCard")) card.SetActive(false); });
 
     public void SetCardsVisibleOf(PlayerScript player) => player.GetDeck().ForEach(card => card.SetActive(true));
-
-    public void RearrangeCards()
-    {
-        //delete old cards from Player Deck
-        var cardStackCard = cardStack.GetLastCard();
-        foreach(var player in players)
-        {
-            foreach(var card in player.GetDeck())
-            {
-                if (cardStackCard != card) continue;
-                player.RemoveCard(card);
-                return;
-            }
-        }
-    }
 
     public void SetCardDescription(string color, string symbol) => cardDescripion.text = color + " " + symbol;
 }
